@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  http2:
+    enabled: true
+  servlet:
+    context-path: /api
+
+zoom:
+  apiKey: aaaaaaaaa
+  apiSecret: zzzzzzzzzz
+  endpoint:
+    baseUri: https://api.zoom.us/v2
+    meetings:
+      schedule: /users/me/meetings
+
