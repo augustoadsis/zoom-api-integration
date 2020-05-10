@@ -1,4 +1,5 @@
 # Basic Zoom API Integration
+In this example you going to know how to integrate with Zoom API using JWT authentication to list and schedule/create meetings.
 
 ### Requirements
 First of all, you should generate the API Key and API Secret, so please follow the instructions bellow.
