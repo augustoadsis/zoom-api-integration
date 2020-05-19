@@ -10,6 +10,7 @@ zoom:
   apiSecret: zzzzzzzzzz
   endpoint:
     baseUri: https://api.zoom.us/v2
-    meetings:
-      schedule: /users/me/meetings
+    meetings: /meetings
+    subaccounts: /accounts
+    users: /users
 

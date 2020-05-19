@@ -21,7 +21,13 @@ public class MeetingController {
 
     @PostMapping
     public ResponseEntity<Object> schedule(@RequestBody MeetingRequest request) {
-        MeetingResponse meeting = meetingService.schedule(request);
+        MeetingResponse meeting = meetingService.schedule("me", request);
+        return ResponseEntity.status(HttpStatus.OK).body(meeting);
+    }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<Object> schedule(@PathVariable String id, @RequestBody MeetingRequest request) {
+        MeetingResponse meeting = meetingService.schedule(id, request);
         return ResponseEntity.status(HttpStatus.OK).body(meeting);
     }
 

@@ -1,4 +1,4 @@
-package com.augusto.zoom.meeting;
+package com.augusto.zoom.subaccount;
 
 import com.augusto.zoom.auth.AuthService;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +11,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Slf4j
 @Service
-public class MeetingService {
+public class SubaccountService {
 
     @Autowired
     private RestTemplate restTemplate;
@@ -22,17 +22,14 @@ public class MeetingService {
     @Value("${zoom.endpoint.baseUri}")
     private String baseUri;
 
-    @Value("${zoom.endpoint.users}")
-    private String usersPath;
-
-    @Value("${zoom.endpoint.meetings}")
-    private String meetingsPath;
+    @Value("${zoom.endpoint.subaccounts}")
+    private String subaccountPath;
 
     public ResponseEntity<Object> fildAll() {
         try {
             HttpHeaders headers = authService.generateHeader();
             HttpEntity request = new HttpEntity(headers);
-            ResponseEntity<Object> meetings = restTemplate.exchange(baseUri + meetingsPath, HttpMethod.GET, request, Object.class);
+            ResponseEntity<Object> meetings = restTemplate.exchange(baseUri + subaccountPath, HttpMethod.GET, request, Object.class);
             return meetings;
         } catch (Exception exception) {
             log.error(exception.getMessage());
@@ -40,12 +37,12 @@ public class MeetingService {
         }
     }
 
-    public MeetingResponse schedule(String id, MeetingRequest meetingRequest) {
+    public SubaccountResponse create(SubaccountRequest subaccountRequest) {
         try {
             HttpHeaders headers = authService.generateHeader();
-            HttpEntity<MeetingRequest> request = new HttpEntity<>(meetingRequest, headers);
-            MeetingResponse meeting = restTemplate.postForObject(baseUri + usersPath + "/" + id + meetingsPath, request, MeetingResponse.class);
-            return meeting;
+            HttpEntity<SubaccountRequest> request = new HttpEntity<>(subaccountRequest, headers);
+            SubaccountResponse subaccount = restTemplate.postForObject(baseUri + subaccountPath, request, SubaccountResponse.class);
+            return subaccount;
         } catch (Exception exception) {
             log.error(exception.getMessage());
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, exception.getMessage());
