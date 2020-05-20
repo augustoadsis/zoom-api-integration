@@ -1,0 +1,275 @@
+{
+	"info": {
+		"_postman_id": "2043d178-2f7d-4c0e-b9ba-4d3348b5ba49",
+		"name": "Zoom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "auth",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "meetings",
+			"item": [
+				{
+					"name": "findAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/meetings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"meetings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schedule",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"topic\": \"Api Integration\",\n    \"agenda\": \"Test for Zoom meeting integration\",\n    \"start_time\": \"2020-05-09T23:30:00\",\n    \"timezone\": \"America/Sao_Paulo\",\n    \"duration\": 60,\n    \"type\": 2,\n    \"password\": \"123456\",\n    \"settings\": {\n        \"host_video\": true,\n        \"participant_video\": true,\n        \"cn_meeting\": false,\n        \"in_meeting\": false,\n        \"join_before_host\": true,\n        \"mute_upon_entry\": false,\n        \"watermark\": false,\n        \"use_pmi\": false,\n        \"approval_type\": 2,\n        \"registration_type\": null,\n        \"audio\": \"both\",\n        \"auto_recording\": \"none\",\n        \"waiting_room\": false,\n        \"enforce_login\": false,\n        \"enforce_login_domains\": \"\",\n        \"alternative_hosts\": \"\",\n        \"global_dial_in_countries\": [\n            \"Brazil\"\n        ],\n        \"registrants_email_notification\": false\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/meetings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"meetings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "schedule by user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"topic\": \"Api Integration\",\n    \"agenda\": \"Test for Zoom meeting integration\",\n    \"start_time\": \"2020-05-19T15:30:00\",\n    \"timezone\": \"America/Sao_Paulo\",\n    \"duration\": 60,\n    \"type\": 2,\n    \"password\": \"123456\",\n    \"settings\": {\n        \"host_video\": true,\n        \"participant_video\": true,\n        \"cn_meeting\": false,\n        \"in_meeting\": false,\n        \"join_before_host\": true,\n        \"mute_upon_entry\": false,\n        \"watermark\": false,\n        \"use_pmi\": false,\n        \"approval_type\": 2,\n        \"registration_type\": null,\n        \"audio\": \"both\",\n        \"auto_recording\": \"none\",\n        \"waiting_room\": false,\n        \"enforce_login\": false,\n        \"enforce_login_domains\": \"\",\n        \"alternative_hosts\": \"\",\n        \"global_dial_in_countries\": [\n            \"Brazil\"\n        ],\n        \"registrants_email_notification\": false\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/meetings/{userId}",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"meetings",
+								"{userId}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "subaccounts",
+			"item": [
+				{
+					"name": "findAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/subaccounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"subaccounts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Account\",\n    \"last_name\": \"Zoom\",\n    \"email\": \"account@zoom.com\",\n    \"password\": \"brbrdfbs34refs\",\n    \"options\": {\n        \"share_rc\": false,\n        \"room_connectors\": \"\",\n        \"share_mc\": false,\n        \"meeting_connectors\": \"\",\n        \"pay_mode\": \"master\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/subaccounts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"subaccounts"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "findAll",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"action\": \"custCreate\",\n  \"user_info\": {\n    \"email\": \"user@zoom.com\",\n    \"type\": 1,\n    \"first_name\": \"User\",\n    \"last_name\": \"Zoom\"\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
