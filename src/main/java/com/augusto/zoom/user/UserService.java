@@ -41,8 +41,8 @@ public class UserService {
         try {
             HttpHeaders headers = authService.generateHeader();
             HttpEntity<UserRequest> request = new HttpEntity<>(userRequest, headers);
-            UserResponse subaccount = restTemplate.postForObject(baseUri + usersPath, request, UserResponse.class);
-            return subaccount;
+            UserResponse user = restTemplate.postForObject(baseUri + usersPath, request, UserResponse.class);
+            return user;
         } catch (Exception exception) {
             log.error(exception.getMessage());
             throw new HttpClientErrorException(HttpStatus.BAD_REQUEST, exception.getMessage());
